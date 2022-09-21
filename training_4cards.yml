@@ -1,0 +1,42 @@
+###############
+#区别只有GPU和BATCH_SIZE
+
+GPU: [0,1,2,3] 
+
+MODEL:
+  MODE: 'Denoising'
+  SESSION: 'InvDN'
+
+# Optimization arguments.
+# 8gpus*8bs*256*256*400000iters
+OPTIM:
+  BATCH_SIZE: 14 
+  NUM_ITERS: 150000
+  LR_INITIAL: 8e-4
+  BETA1: 0.9
+  BETA2: 0.999
+  MILESTONES: [12500, 25000, 37500, 50000, 62500, 75000, 87500, 100000, 112500, 125000, 137500]
+  GAMMA: 0.5
+  WEIGHT_DECAY_G: 1e-8
+  GRADIENT_CLIPPING: 10
+  PIXEL_CRITERION_FORW: l2
+  PIXEL_CRITERION_BACK: l1
+  LAMBDA_FIT_FORW: 16.
+  LAMBDA_REC_BACK: 1
+
+TRAINING:
+  TRAIN_PS: 256
+  RESUME: False
+  RESUME_PATH: './output/Denoising/models-paper-4/InvDN/model_latest.pdparams'
+  PRINT_FREQ: 100 #200
+  # DATAROOT_GT: '/home/zhangyichen/dct/cvpr/InvDN_paddlepaddle/SIDD_Medium_Srgb_Patches_512/train/GT'
+  # DATAROOT_NOISY: '/home/zhangyichen/dct/cvpr/InvDN_paddlepaddle/SIDD_Medium_Srgb_Patches_512/train/Noisy'
+  # DATAROOT_LQ: ~
+
+  SCALE: 4
+  GT_SIZE: 144
+
+  TRAIN_DIR: './SIDD_Medium_Srgb_Patches_512/train/' # path to train data
+  VAL_DIR: './SIDD_Valid_Srgb_Patches_256/valid'     # path to validation data
+  SAVE_DIR: './experiments'          # path to save models and images
+  SAVE_IMAGES: False
