@@ -19,8 +19,8 @@ if __name__ == '__main__':
     scale = opt.TRAINING.SCALE
     down_num = int(math.log(scale, 2))
     model = InvNet(channel_in=3, channel_out=3, subnet_constructor=constructor, block_num=[8, 8], down_num=down_num)
-    print("最新")
-    ckpt = paddle.load("/home/zhangyichen/dct/cvpr/InvDN_paddlepaddle/experiments/Denoising/models-channel/InvDN/model_latest.pdparams")
+    print("京剧")
+    ckpt = paddle.load("/home/zhangyichen/dct/cvpr/InvDN_paddlepaddle/experiments/Denoising/models-channel-p/InvDN/model_latest.pdparams")
     model.set_state_dict(ckpt['state_dict'])
 
     psnr_val_rgb = []
@@ -38,6 +38,7 @@ if __name__ == '__main__':
             psnr = img_utils.batch_PSNR(fake_H, gt, 1.)
             print(psnr)
             psnr_val_rgb.append(psnr)
+
     psnr_val_rgb = sum(psnr_val_rgb) / len(psnr_val_rgb)
     print("PSNR: ",psnr_val_rgb)
     

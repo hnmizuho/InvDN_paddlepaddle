@@ -7,6 +7,7 @@ output/*
 SIDD_Medium_Srgb/*
 SIDD_Medium_Srgb_Patches_512/*
 SIDD_Valid_Srgb_Patches_256/*
+TrumpSIDD_Valid_Srgb_Patches_256/*
 default_invdn.pdparams
 default_invdn.pth
 InvDN_ResUnit_x4.pdparams

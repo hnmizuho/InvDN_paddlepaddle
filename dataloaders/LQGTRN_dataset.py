@@ -1,4 +1,4 @@
-print("苟利国家生死以-应该对了")
+print("苟利国家生死以-戏曲")
 import random
 import numpy as np
 import cv2
@@ -9,8 +9,7 @@ from paddle.io import Dataset
 # import data.util as util
 from utils import util
 import os.path as osp
-
-
+import os
 # class LQGTRNDataset(data.Dataset):
 class LQGTRNDataset(Dataset):
     '''
@@ -149,7 +148,7 @@ class LQGTRNDataset(Dataset):
         img_LQ = util.channel_convert(C, "RGB", [img_LQ])[0] # TODO during val no definition
 
         # BGR to RGB, HWC to CHW, numpy to tensor
-        if img_GT.shape[2] == 3 and self.is_train:
+        if img_GT.shape[2] == 3:
             img_GT = img_GT[:, :, [2, 1, 0]]
             img_Noisy = img_Noisy[:, :, [2, 1, 0]]
             img_LQ = img_LQ[:, :, [2, 1, 0]]

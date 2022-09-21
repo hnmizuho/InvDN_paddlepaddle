@@ -37,6 +37,6 @@ TRAINING:
   GT_SIZE: 144
 
   TRAIN_DIR: './SIDD_Medium_Srgb_Patches_512/train/' # path to train data
-  VAL_DIR: './SIDD_Valid_Srgb_Patches_256/valid'     # path to validation data
+  VAL_DIR: './TrumpSIDD_Valid_Srgb_Patches_256/valid'     # path to validation data
   SAVE_DIR: './experiments'          # path to save models and images
   SAVE_IMAGES: False

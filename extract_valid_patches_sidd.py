@@ -5,7 +5,7 @@ import numpy as np
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
-tar = './SIDD_Valid_Srgb_Patches_256/valid'
+tar = './TrumpSIDD_Valid_Srgb_Patches_256/valid'
 noisy_patchDir = os.path.join(tar, 'Noisy')
 clean_patchDir = os.path.join(tar, 'GT')
 if os.path.exists(tar):
@@ -30,6 +30,8 @@ def save_files(i):
 
         noisy_patch = Inoisy[j]
         clean_patch = Iclean[j]
+        noisy_patch = cv2.cvtColor(noisy_patch, cv2.COLOR_BGR2RGB) #太坑人了，这种图片还看不出来通道有问题
+        clean_patch = cv2.cvtColor(clean_patch, cv2.COLOR_BGR2RGB)
         cv2.imwrite(os.path.join(clean_patchDir, '%d_%d.PNG'%(i, j)), clean_patch)
         cv2.imwrite(os.path.join(noisy_patchDir, '%d_%d.PNG'%(i, j)), noisy_patch)
     print('[%d/%d] is done\n' % (i+1, 40))
