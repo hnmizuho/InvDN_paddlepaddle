@@ -223,4 +223,4 @@ bash test_tipc/test_train_inference_python.sh ./test_tipc/configs/InvDN/train_in
 
 ## 8. Acknowledgement
 
-本项目代码框架借鉴了 [HINet](https://github.com/youngAt19/hinet_paddle.git) 和 [MIRNet](https://github.com/sldyns/MIRNetV2_paddle.git) 以及 [InvDN]((https://github.com/Yang-Liu1082/InvDN)), 非常感谢他们的工作。
+本项目代码框架借鉴了 [HINet](https://github.com/youngAt19/hinet_paddle.git) 和 [MIRNet](https://github.com/sldyns/MIRNetV2_paddle.git) 以及 [InvDN](https://github.com/Yang-Liu1082/InvDN), 非常感谢他们的工作。
