@@ -1,0 +1,36 @@
+###############
+
+GPU: [0,1,2,3] 
+
+MODEL:
+  MODE: 'Denoising'
+  SESSION: 'InvDN'
+
+OPTIM:
+  BATCH_SIZE: 14 
+  NUM_ITERS: 150000
+  LR_INITIAL: 8e-4
+  BETA1: 0.9
+  BETA2: 0.99
+  MILESTONES: [25000, 50000, 75000, 100000, 125000, 135000, 145000]
+  GAMMA: 0.5
+  WEIGHT_DECAY_G: 1e-8
+  GRADIENT_CLIPPING: 10
+  PIXEL_CRITERION_FORW: l2
+  PIXEL_CRITERION_BACK: l1
+  LAMBDA_FIT_FORW: 16.
+  LAMBDA_REC_BACK: 1
+
+TRAINING:
+  TRAIN_PS: 256
+  RESUME: True
+  RESUME_PATH: './experiments/Denoising/models-final3/InvDN/model_best.pdparams'
+  PRINT_FREQ: 100 #200
+
+  SCALE: 4
+  GT_SIZE: 144
+
+  TRAIN_DIR: './SIDD_Medium_Srgb_Patches_512/train/' # path to train data
+  VAL_DIR: './SIDD_Valid_Srgb_Patches_256/valid'     # path to validation data
+  SAVE_DIR: './experiments'          # path to save models and images
+  SAVE_IMAGES: False
