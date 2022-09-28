@@ -105,10 +105,10 @@ def main():
 
     with LogWriter(logdir=log_dir) as writer:
         step = 0
-        best_psnr = 0
+        best_psnr = -float('inf')
         best_iter = 0
 
-        eval_now = 1000
+        eval_now = 1000 if 1000<opt.iter else opt.iter
 
         print(f"\nEvaluation after every {eval_now} Iterations !!!\n")
 
