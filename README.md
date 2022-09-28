@@ -217,6 +217,20 @@ bash test_tipc/prepare.sh ./test_tipc/configs/InvDN/train_infer_python.txt 'lite
 bash test_tipc/test_train_inference_python.sh ./test_tipc/configs/InvDN/train_infer_python.txt 'lite_train_lite_infer'
 ```
 
+出现以下输出，即TIPC成功。
+
+```
+Run successfully with command - python train.py --data_dir ./test_tipc/data/SIDD_mini/train_mini/ --val_dir ./test_tipc/data/SIDD_mini/val_mini/ --log_dir=./test_tipc/output/InvDN/norm_train_gpus_0 --iter=10   --batchSize=1! 
+
+Run successfully with command - python predict.py --weights ./test_tipc/output/InvDN/norm_train_gpus_0/models/model_best.pdparams --data_path ./test_tipc/data/SIDD_mini/val_mini/!  
+
+Run successfully with command - python export_model.py --weights ./test_tipc/output/InvDN/norm_train_gpus_0/models/model_best.pdparams --save-inference-dir=./test_tipc/output/InvDN/norm_train_gpus_0!  
+
+Run successfully with command - python infer.py --use-gpu=True --model-dir=./test_tipc/output/InvDN/norm_train_gpus_0 --batch-size=1 --clean-dir=./test_tipc/data/SIDD_mini/val_mini/GT/0_0.PNG --noisy-dir=./test_tipc/data/SIDD_mini/val_mini/Noisy/0_0.PNG   > ./test_tipc/output/InvDN/python_infer_gpu_batchsize_1.log 2>&1 !  
+
+Run successfully with command - python infer.py --use-gpu=False --model-dir=./test_tipc/output/InvDN/norm_train_gpus_0 --batch-size=1 --clean-dir=./test_tipc/data/SIDD_mini/val_mini/GT/0_0.PNG --noisy-dir=./test_tipc/data/SIDD_mini/val_mini/Noisy/0_0.PNG   > ./test_tipc/output/InvDN/python_infer_cpu_batchsize_1.log 2>&1 !  
+```
+
 ## 7. LICENSE
 
 本项目的发布受[Apache 2.0 license](https://github.com/PaddlePaddle/models/blob/release/2.2/community/repo_template/LICENSE)许可认证。
