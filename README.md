@@ -31,7 +31,7 @@ python generate_patches_sidd.py
 ```
 所生成的patches放在 `./SIDD_Medium_Srgb_Patches_512/train` 下。本文将patch划为 $512 \times 512$。
 
-3. (可选) 本文训练时需要产生低分辨率版本的ground-truth，为了加速读取，可以事先遍历一遍训练集，产生的低分辨率图片将存储在`./SIDD_Medium_Srgb_Patches_512/train/LQ` 下。如果不进行该步骤也没问题，训练时每遇到一个新的sample，都会产生其对应的低分辨率版本并存储在`./SIDD_Medium_Srgb_Patches_512/train/LQ` 下。
+3. 本文训练时需要产生低分辨率版本的ground-truth，为了加速读取，需要事先遍历一遍训练集，产生的低分辨率图片将存储在`./SIDD_Medium_Srgb_Patches_512/train/LQ` 下。如果不进行该步骤，低分辨率图像会在训练时产生并存储，会严重拖慢IO。
 使用如下命令来提前产生低分辨率版本的ground-truth：
 ```code
 python generate_lq.py
