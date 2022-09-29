@@ -31,7 +31,6 @@ def run_one_epoch():
     with paddle.no_grad():
         for iter,data_val in enumerate(train_loader):
             print("lq image ", iter, " done.")
-            break
     
     print("All LQ images generated.")
 
