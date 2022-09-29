@@ -27,7 +27,7 @@ InvDN利用可逆网络把噪声图片分成低解析度干净图片和高频潜
 2. 运行如下命令生成训练集patches
 
 ```code
-python generate_patches_SIDD.py
+python generate_patches_sidd.py
 ```
 所生成的patches放在 `./SIDD_Medium_Srgb_Patches_512/train` 下。本文将patch划为 $512 \times 512$。
 
