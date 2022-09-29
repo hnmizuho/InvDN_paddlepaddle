@@ -36,7 +36,7 @@ class LQGTRNDataset(Dataset):
             elif alternative_opt:
                 dataroot_gt = osp.join(alternative_opt["train_dir"], "GT")
                 dataroot_noisy = osp.join(alternative_opt["train_dir"], "Noisy")
-                dataroot_lq = osp.join(alternative_opt["train_dir"], "LQ")                
+                dataroot_lq = osp.join(alternative_opt["train_dir"], "LQ")          
         else:
             if opt:
                 dataroot_gt = osp.join(opt.TRAINING.VAL_DIR, "GT")
@@ -49,7 +49,11 @@ class LQGTRNDataset(Dataset):
 
         self.paths_GT, self.sizes_GT = util.get_image_paths(self.data_type, dataroot_gt)
         self.paths_Noisy, self.sizes_Noisy = util.get_image_paths(self.data_type, dataroot_noisy)
-        self.paths_LQ, self.sizes_LQ = util.get_image_paths(self.data_type, dataroot_lq)
+        if self.is_train and not os.path.exists(dataroot_lq):
+            os.makedirs(dataroot_lq)     
+        else:
+            self.paths_LQ, self.sizes_LQ = util.get_image_paths(self.data_type, dataroot_lq)
+ 
         assert self.paths_GT, 'Error: GT path is empty.'
         assert self.paths_Noisy, 'Error: Noisy path is empty.'
         if self.paths_LQ and self.paths_GT:
