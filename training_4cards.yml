@@ -23,7 +23,7 @@ OPTIM:
 
 TRAINING:
   TRAIN_PS: 256
-  RESUME: True
+  RESUME: False
   RESUME_PATH: './experiments/Denoising/models-final3/InvDN/model_best.pdparams'
   PRINT_FREQ: 100 #200
 
